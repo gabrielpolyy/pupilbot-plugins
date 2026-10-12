@@ -17,5 +17,9 @@
     "practice",
     "progress",
     "mcp"
-  ]
+  ],
+  "privacyPolicyUrl": "https://www.pupilbot.com/privacy",
+  "termsOfServiceUrl": "https://www.pupilbot.com/tos",
+  "supportUrl": "https://www.pupilbot.com/support",
+  "documentationUrl": "https://www.pupilbot.com/mcp"
 }
