@@ -1,0 +1,16 @@
+{
+  "name": "pupilbot",
+  "description": "PupilBot plugin for Claude Code: ask about your study progress and make studies from notes.",
+  "owner": {
+    "name": "PupilBot",
+    "email": "support@pupilbot.com"
+  },
+  "plugins": [
+    {
+      "name": "pupilbot",
+      "source": "./pupilbot",
+      "description": "Connects the PupilBot MCP server and adds skills for a progress report, today's due reviews, and a new study from notes.",
+      "category": "productivity"
+    }
+  ]
+}

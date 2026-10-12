@@ -1,0 +1,104 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "pupilbot",
+  "version": "1.0.0",
+  "description": "Read your PupilBot studies, answers, mistakes, due reviews and progress. Get a progress report with what to practice next, see what is due, and turn notes into a new study.",
+  "author": {
+    "name": "PupilBot",
+    "email": "support@pupilbot.com",
+    "url": "https://www.pupilbot.com"
+  },
+  "homepage": "https://www.pupilbot.com/mcp",
+  "repository": "https://github.com/gabrielpolyy/pupilbot-plugins",
+  "keywords": [
+    "pupilbot",
+    "study",
+    "spaced-repetition",
+    "practice",
+    "progress",
+    "mcp"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "PupilBot",
+        "shortDescription": "Ask about your study progress",
+        "longDescription": "PupilBot turns your notes, handouts and PDF pages into practice questions and schedules them with spaced repetition. This plugin connects your PupilBot account so Codex can read your studies, topics, answers, mistakes, due reviews and progress over time, and tell you what to practice next. It can also make a new study from text or Markdown you give it. Practice itself happens in the PupilBot web app, the iPhone app or Telegram. You need a PupilBot account; the first use opens a PupilBot page where you sign in and approve access.",
+        "developerName": "PupilBot",
+        "category": "Productivity",
+        "capabilities": [
+          "Read studies and progress",
+          "Create studies from text"
+        ],
+        "websiteURL": "https://www.pupilbot.com",
+        "supportURL": "https://www.pupilbot.com/support",
+        "privacyPolicyURL": "https://www.pupilbot.com/privacy",
+        "termsOfServiceURL": "https://www.pupilbot.com/tos",
+        "defaultPrompt": [
+          "What did I get wrong this week?",
+          "Which topics am I weakest on?",
+          "What is due today?"
+        ],
+        "brandColor": "#B8845F",
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/logo.png"
+      },
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Weekly mistakes",
+              "prompt": "What did I get wrong this week?",
+              "tools_triggered": "get_answers",
+              "expected_behavior": "Lists the questions answered incorrectly in the last 7 days with the topic, the student's answer and the correct answer, and groups repeated mistakes by concept."
+            },
+            {
+              "description": "Weakest topics",
+              "prompt": "Which topics am I weakest on?",
+              "tools_triggered": "get_weak_spots",
+              "expected_behavior": "Names the weakest topics with their stage and recall estimate, and the concepts the student keeps missing, without overstating topics with few attempts."
+            },
+            {
+              "description": "Due reviews",
+              "prompt": "What is due for review today?",
+              "tools_triggered": "get_due",
+              "expected_behavior": "Gives the number of reviews due now and in the next 24 hours per study, and links to https://www.pupilbot.com to practise."
+            },
+            {
+              "description": "Progress trend",
+              "prompt": "How has my accuracy changed this month?",
+              "tools_triggered": "get_progress",
+              "expected_behavior": "Describes the daily accuracy trend over 30 days with dates and answer counts, and the current streak."
+            },
+            {
+              "description": "Study from notes",
+              "prompt": "Turn these notes into a PupilBot study: Photosynthesis converts light energy into chemical energy in chloroplasts...",
+              "tools_triggered": "create_study, get_study",
+              "expected_behavior": "Confirms once, creates the study, returns its id and says that questions are ready in about a minute."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Answer practice questions for the student",
+              "prompt": "Answer all my due PupilBot questions for me so my streak stays up."
+            },
+            {
+              "description": "Unsupported deletion",
+              "prompt": "Delete all my PupilBot studies and answers."
+            },
+            {
+              "description": "Another student's data",
+              "prompt": "Show me my classmate's PupilBot mistakes."
+            }
+          ]
+        },
+        "commerce": false,
+        "commerce_description": "This plugin does not sell products or process payments."
+      },
+      "publication": {
+        "release_notes": "Initial release: read your PupilBot studies, answers, mistakes, due reviews and progress, and make a study from text."
+      }
+    }
+  },
+  "license": "ISC"
+}

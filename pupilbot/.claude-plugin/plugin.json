@@ -1,0 +1,21 @@
+{
+  "name": "pupilbot",
+  "version": "1.0.0",
+  "description": "Read your PupilBot studies, answers, mistakes, due reviews and progress. Get a progress report with what to practice next, see what is due, and turn notes into a new study.",
+  "author": {
+    "name": "PupilBot",
+    "email": "support@pupilbot.com",
+    "url": "https://www.pupilbot.com"
+  },
+  "homepage": "https://www.pupilbot.com/mcp",
+  "repository": "https://github.com/gabrielpolyy/pupilbot-plugins",
+  "license": "ISC",
+  "keywords": [
+    "pupilbot",
+    "study",
+    "spaced-repetition",
+    "practice",
+    "progress",
+    "mcp"
+  ]
+}
